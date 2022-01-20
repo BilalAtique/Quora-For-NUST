@@ -1,10 +1,12 @@
 import './App.css';
+import Register from './components/registration/Registration';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (
     <div className="App">
-      <h2>Quora for Nust</h2>
-      <p>A place to ask questions</p>
+      <Register />
     </div>
   );
 }
