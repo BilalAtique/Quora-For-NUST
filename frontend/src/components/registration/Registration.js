@@ -2,15 +2,16 @@ import { useState } from "react";
 
 const Register = () => {
     const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
     const [batchInfo, setBatchInfo] = useState('');
     const [password, setPassword] = useState('');
     const [confPassword, setConfPassword] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const user = { name, batchInfo, password, confPassword };
+        const user = { name, email, batchInfo, password, confPassword };
     
-        fetch('http://localhost:8000/user/', {
+        fetch('http://localhost:8000/user', {
           method: 'POST',
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(user)
@@ -34,6 +35,12 @@ const Register = () => {
                                         <label>Name<span className="text-danger">*</span></label>
                                         <input required type="text" name="name" onChange={(e) => setName(e.target.value)}
                                             value={name} className="form-control" placeholder="Enter your Name" />
+                                    </div>
+
+                                    <div className="mb-3 col-md-12">
+                                        <label>E-mail<span className="text-danger">*</span></label>
+                                        <input required type="email" name="email" onChange={(e) => setEmail(e.target.value)}
+                                            value={email} className="form-control" placeholder="Enter your E-mail" />
                                     </div>
 
                                     <div className="mb-3 col-md-12">
